@@ -3,8 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+android:background="#225975"
     android:layout_height="wrap_content"
     tools:context=".ui.home.HomeFragment">
+    <TextView
+        android:id="@+id/signInSignOut"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/btn_bg01"
+        android:text="Registration/ \nSign in"
+        android:textAlignment="center"
+        android:textDirection="inherit"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewIdentify"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="152dp"
+        android:background="@android:color/transparent"
+        android:paddingTop="10dp"
+        android:textAlignment="center"
+        android:textColor="#FF001E"
+        android:textDirection="inherit"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/basket_btn"
+        app:layout_constraintStart_toStartOf="signInSignOut"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/basket_btn"

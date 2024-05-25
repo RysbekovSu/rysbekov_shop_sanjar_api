@@ -53,6 +53,14 @@
                     android:textSize="18dp"
                     android:textStyle="bold"
                     android:layout_marginStart="16dp" />
+                <TextView
+                    android:id="@+id/category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asics gel NYC"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

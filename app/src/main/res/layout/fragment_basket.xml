@@ -1,84 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
+    android:background="#225975"
     android:orientation="vertical"
-    android:background="#F2FDE6"
+    android:padding="12dp"
     tools:context=".ui.dashboard.BasketFragment">
-
-    <ImageButton
-        android:id="@+id/btn_back"
-        android:layout_width="36dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="Back"
-        tools:ignore="TouchTargetSizeCheck"
-       />
-
-    <TextView
-        android:id="@+id/text_dashboeard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Your personal basket"
-        android:background="@color/white"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_basket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="horizontal"
-        tools:listitem="@layout/item_product"/>
-
-    <ImageView
-        android:id="@+id/place_holder"
-        android:layout_width="380dp"
-        android:layout_height="180dp"
-        android:src="@drawable/no"
-        android:visibility="visible"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="center_horizontal"/>
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/rv_basket"
-        android:background="@color/white"
-        android:layout_marginTop="20dp">
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Count for pay:"
-            android:textSize="20sp"
-            android:layout_marginStart="12dp"/>
-        <TextView
-            android:id="@+id/basket_total_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0.0"
-            android:textSize="20sp"
-            android:layout_marginStart="18dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="$"
-            android:textSize="20sp"
-            android:layout_marginStart="12dp"/>
-    </LinearLayout>
+            android:orientation="vertical"
+            android:padding="16dp">
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="36dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/back"
+                android:contentDescription="button_back"
+                tools:ignore="TouchTargetSizeCheck" />
 
-    <Button
-        android:id="@+id/btn_pay"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:text="pay"/>
+            <TextView
+                android:id="@+id/text_dashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Your personal basket:"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_basket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                tools:listitem="@layout/item_order" />
+
+            <ImageView
+                android:id="@+id/place_holder"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:src="@drawable/no"
+                android:visibility="visible"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"/>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_users_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="your name: " />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="18dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_users_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="address for delivery"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="Введите кол-во товара: "/>
+                <EditText
+                    android:id="@+id/place_counter"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:background="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/btn_make_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    app:cornerRadius="20dp"
+                    android:backgroundTint="#DF86E6"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:text="оформить заказ"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/btn_to_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    app:cornerRadius="20dp"
+                    android:backgroundTint="#DF86E6"
+                    android:layout_marginLeft="30dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:text="оплатить"
+                    android:textAllCaps="false"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_otvet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
